@@ -168,7 +168,7 @@ button, input, textarea, select { line-height: 1.5; }
 .hero__title {
   font-family: var(--font-disp);
   font-size: clamp(80px, 12vw, 180px);
-  line-height: 0.9;
+  line-height: 1.05;
   letter-spacing: -0.04em;
   font-weight: 700;
   text-transform: uppercase;
@@ -298,7 +298,7 @@ button, input, textarea, select { line-height: 1.5; }
 .section__title {
   font-family: var(--font-disp);
   font-size: clamp(48px, 7vw, 90px);
-  line-height: 0.92; letter-spacing: -0.03em;
+  line-height: 1.08; letter-spacing: -0.03em;
   font-weight: 600; text-transform: uppercase;
   margin-bottom: 56px;
   max-width: 80%;
@@ -410,11 +410,6 @@ button, input, textarea, select { line-height: 1.5; }
 .tariff:last-child { border-right: none; }
 .tariff:hover { background: rgba(255, 90, 31, 0.06); }
 
-.tariff__num {
-  font-family: var(--font-mono);
-  font-size: 11px; color: var(--accent);
-  letter-spacing: 0.15em; margin-bottom: 20px;
-}
 .tariff__name {
   font-family: var(--font-disp);
   font-size: 34px; line-height: 1;
@@ -603,21 +598,9 @@ button, input, textarea, select { line-height: 1.5; }
   color: rgba(245, 241, 232, 0.8); margin-bottom: 28px;
 }
 .team__quote {
-  position: relative;
-  padding-left: 34px;
   font-size: 20px; line-height: 1.5; font-style: italic;
   color: var(--fg); margin-bottom: 28px;
   flex: 1;
-}
-.team__quote::before {
-  content: '«';
-  position: absolute;
-  left: 0; top: -4px;
-  font-family: var(--font-disp);
-  font-size: 52px; font-style: normal;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.55;
 }
 .team__contacts {
   display: grid;
