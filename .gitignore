@@ -1,2 +1,5 @@
 # Local Claude-session handoff (переписывается каждую сессию)
 NEXT_SESSION.md
+
+# Local Claude Code config/tooling (machine-specific, incl. Impeccable skill+hooks)
+.claude/
