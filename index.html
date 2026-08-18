@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUSANIN BIKE — прокат эндуро в Костромской области</title>
+  <meta name="description" content="Прокат эндуро мотоциклов в Сусанинском районе Костромской области. Пять мотоциклов, гид. Д. Вырокино." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========= НАВИГАЦИЯ ========= -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <img src="images/mikhail-logo.jpg" alt="SUSANIN BIKE" class="nav__logo-img" />
+      <div class="nav__logo-text">
+        <span class="nav__logo-main">SUSANIN</span>
+        <span class="nav__logo-dot">·</span>
+        <span class="nav__logo-sub">BIKE</span>
+      </div>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#tariffs">Тарифы</a></li>
+      <li><a href="#team">Команда</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button type="button" class="nav__cta" data-open-booking>Записаться</button>
+    <button class="nav__burger" id="navBurger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="nav__mobile" id="navMobile">
+    <ul>
+      <li><a href="#tariffs">Тарифы</a></li>
+      <li><a href="#team">Команда</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><button type="button" class="nav__cta" data-open-booking>Записаться</button></li>
+    </ul>
+  </div>
+
+  <!-- ========= HERO ========= -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="images/hero-rider.jpg" alt="Эндуро в Костромских лесах" class="hero__bg-img" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__kicker reveal">
+        ⎯⎯ Костромская обл. · д. Вырокино · 57.9°N 41.3°E
+      </div>
+      <h1 class="hero__title reveal reveal--delay-1">
+        ЗАВЕДЁМ<br/>
+        <em>в такие дебри,</em><br/>
+        что сами<br/>
+        выйти не сможем.
+      </h1>
+      <div class="hero__bottom reveal reveal--delay-2">
+        <p class="hero__desc">
+          Прокат эндуро в Сусанинском районе. Пять мотоциклов, два инструктора
+          и одна традиция — вернуться в баню затемно.
+        </p>
+        <div class="hero__btns">
+          <button type="button" class="btn btn--accent" data-open-booking>Записаться →</button>
+          <a href="#tariffs" class="btn btn--outline">Посмотреть тарифы</a>
+        </div>
+      </div>
+      <div class="hero__stats reveal reveal--delay-3">
+        <div class="hero__stat">
+          <div class="hero__stat-num">500</div>
+          <div class="hero__stat-label">Уехавших счастливыми</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">1</div>
+          <div class="hero__stat-label">Инструктор в районе*</div>
+        </div>
+      </div>
+      <div class="hero__footnote">*знает все тропы. знает все кусты.</div>
+    </div>
+  </section>
+
+  <!-- ========= ТАРИФЫ ========= -->
+  <section class="section section--dark" id="tariffs">
+    <div class="section__header">
+      <span class="section__kicker">Тарифы</span>
+      <div class="section__line"></div>
+    </div>
+    <h2 class="section__title">Три способа уехать в дебри.</h2>
+    <div class="tariffs">
+      <div class="tariff">
+        <div class="tariff__num">01 / 03</div>
+        <div class="tariff__name">Аренда + гид</div>
+        <div class="tariff__sub">самый ходовой</div>
+        <div class="tariff__price">2 500 ₽</div>
+        <div class="tariff__desc">Арендуешь мотоцикл — гид в подарок. Идеально для новичков и тех, кто хочет исследовать местность без лишних забот.</div>
+      </div>
+      <div class="tariff">
+        <div class="tariff__num">02 / 03</div>
+        <div class="tariff__name">Мототур</div>
+        <div class="tariff__sub">со своей техникой</div>
+        <div class="tariff__price">1 000 ₽</div>
+        <div class="tariff__desc">Вызов для райдеров со своими мотоциклами. Гид знает каждый поворот.</div>
+      </div>
+      <div class="tariff">
+        <div class="tariff__num">03 / 03</div>
+        <div class="tariff__name">Мотосвидание</div>
+        <div class="tariff__sub">двое на двух колёсах</div>
+        <div class="tariff__price">5 000 ₽</div>
+        <div class="tariff__desc">Незабываемое свидание: мотоциклы, живописные места, уютный пикник на природе. Всё включено.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========= КОМАНДА ========= -->
+  <section class="section" id="team">
+    <div class="section__header">
+      <span class="section__kicker">Команда</span>
+      <div class="section__line"></div>
+    </div>
+    <h2 class="section__title">Один человек.<br/>Один компас.<br/>Один керосин.</h2>
+    <div class="team">
+      <div class="team__photo">
+        <div class="team__photo-glow"></div>
+        <img src="images/mikhail-logo.jpg" alt="Михаил" class="team__photo-img" />
+        <div class="team__photo-label">⎯⎯ маскот · Михаил</div>
+      </div>
+      <div class="team__info">
+        <div class="team__name">Михаил</div>
+        <div class="team__role">Инструктор, гид, механик — всё в одном · 14+ лет в седле</div>
+        <div class="team__stats">Знает каждую просеку в районе. Сам обслуживает весь парк. На связи 24/7, когда ты в седле.</div>
+        <blockquote class="team__quote">«Если не нашёл дорогу — значит, нашёл приключение.»</blockquote>
+        <div class="team__contacts">
+          <a href="tel:+79536505663" class="team__contact">
+            <div class="team__contact-label">Телефон</div>
+            <div class="team__contact-val">8 953 650 56 63</div>
+          </a>
+          <div class="team__contact">
+            <div class="team__contact-label">Зона ответственности</div>
+            <div class="team__contact-val">Всё.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ЧТО ВЗЯТЬ ========= -->
+  <section class="section section--dark" id="gear">
+    <div class="section__header">
+      <span class="section__kicker">Что взять</span>
+      <div class="section__line"></div>
+    </div>
+    <h2 class="section__title">Краткий список.<br/>Всё остальное у нас.</h2>
+    <div class="gear">
+      <div class="gear__col">
+        <div class="gear__num">01</div>
+        <div class="gear__title">Одежда</div>
+        <ul class="gear__list">
+          <li><span class="accent">◢</span> Что-то, что не жалко испачкать. Совсем не жалко.</li>
+          <li><span class="accent">◢</span> Термобельё — даже летом в лесу бывает +12</li>
+          <li><span class="accent">◢</span> Носки х 2 пары на день (промокнут)</li>
+        </ul>
+      </div>
+      <div class="gear__col">
+        <div class="gear__num">02</div>
+        <div class="gear__title">Документы</div>
+        <ul class="gear__list">
+          <li><span class="accent">◢</span> Паспорт</li>
+          <li><span class="accent">◢</span> Права (если есть)</li>
+          <li><span class="accent">◢</span> Страховой полис ОМС</li>
+        </ul>
+      </div>
+      <div class="gear__col">
+        <div class="gear__num">03</div>
+        <div class="gear__title">Мелочи</div>
+        <ul class="gear__list">
+          <li><span class="accent">◢</span> Перекус, вода 1.5 л минимум</li>
+          <li><span class="accent">◢</span> Повербанк (зарядки в лесу нет)</li>
+          <li><span class="accent">◢</span> Чувство юмора — понадобится точно</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========= FAQ ========= -->
+  <section class="section section--dark" id="faq">
+    <div class="section__header">
+      <span class="section__kicker">FAQ</span>
+      <div class="section__line"></div>
+    </div>
+    <h2 class="section__title">Часто спрашивают.<br/>Отвечаем честно.</h2>
+    <div class="faq">
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">01</span>
+          <span class="faq__text">У меня вообще нет опыта. Это вообще реально?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Реально. У нас школа новичков: 4 часа теории и практики на полигоне, потом — лёгкий выезд. Половина наших клиентов сели на эндуро впервые именно у нас.
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">02</span>
+          <span class="faq__text">Нужны ли права?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Для проката на закрытой лесной территории — формально нет. Но мы настойчиво рекомендуем иметь категорию A. Для выездов по дорогам общего пользования — обязательно.
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">03</span>
+          <span class="faq__text">А если я уроню мотоцикл?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Уронишь. Все роняют. Косметические царапины и сломанные рычаги — наш страховой депозит их покрывает. Серьёзная поломка — обсуждается по факту.
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">04</span>
+          <span class="faq__text">Что если пойдёт дождь?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Поедем под дождём. Эндуро в дождь — это отдельный жанр. Если совсем ливень — переносим на удобный день без потерь.
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">05</span>
+          <span class="faq__text">Как добраться до вас?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Кострома → Сусанино → Вырокино. От Костромы 85 км.
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">
+          <span class="faq__num">06</span>
+          <span class="faq__text">Экипировка входит в стоимость?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Шлем, очки, перчатки, мотоботы.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= КАРТА ========= -->
+  <section class="section" id="map">
+    <div class="section__header">
+      <span class="section__kicker">Локация</span>
+      <div class="section__line"></div>
+    </div>
+    <h2 class="section__title">Д. Вырокино.<br/>Найти — квест.</h2>
+    <div class="map-block">
+      <div class="map-block__info">
+        <div class="map-block__row">
+          <div class="map-block__label">Адрес</div>
+          <div class="map-block__val">Костромская обл., Сусанинский р-н,<br/>дер. Вырокино</div>
+        </div>
+        <div class="map-block__row">
+          <div class="map-block__label">Координаты</div>
+          <div class="map-block__val">57.9142° N · 41.2876° E</div>
+        </div>
+        <div class="map-block__row">
+          <div class="map-block__label">Телефон</div>
+          <div class="map-block__val"><a href="tel:+79536505663">+7 953 650 56 63 (Михаил)</a></div>
+        </div>
+        <div class="map-block__row">
+          <div class="map-block__label">Telegram</div>
+          <div class="map-block__val"><a href="https://t.me/susaninbike" target="_blank">@susaninbike</a></div>
+        </div>
+        <div class="map-block__row">
+          <div class="map-block__label">Сезон</div>
+          <div class="map-block__val">Май — октябрь</div>
+        </div>
+        <div class="map-block__row">
+          <div class="map-block__label">Как доехать</div>
+          <div class="map-block__val">Кострома → Сусанино (85 км) → Вырокино</div>
+        </div>
+      </div>
+      <div class="map-block__svg">
+        <svg viewBox="0 0 600 500" width="100%" height="100%">
+          <defs>
+            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(245,241,232,0.05)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="600" height="500" fill="url(#grid)" />
+          <path d="M 0 60 Q 150 30 300 70 T 600 50" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 108 Q 150 78 300 118 T 600 98" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 156 Q 150 126 300 166 T 600 146" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 204 Q 150 174 300 214 T 600 194" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 252 Q 150 222 300 262 T 600 242" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 300 Q 150 270 300 310 T 600 290" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 348 Q 150 318 300 358 T 600 338" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 396 Q 150 366 300 406 T 600 386" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <path d="M 0 444 Q 150 414 300 454 T 600 434" fill="none" stroke="rgba(245,241,232,0.1)" stroke-width="1"/>
+          <!-- Река -->
+          <path d="M 0 320 Q 180 280 300 340 T 600 310" fill="none" stroke="rgba(100,140,180,0.4)" stroke-width="3"/>
+          <!-- Дорога -->
+          <path d="M 50 450 Q 200 400 320 260 T 550 120" fill="none" stroke="#ff5a1f" stroke-width="2" stroke-dasharray="6 4"/>
+          <!-- Пульсирующий маркер -->
+          <circle cx="320" cy="260" r="40" fill="rgba(255,90,31,0.12)">
+            <animate attributeName="r" values="40;55;40" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="320" cy="260" r="8" fill="#ff5a1f"/>
+          <text x="340" y="258" fill="#f5f1e8" font-family="Oswald, sans-serif" font-size="18" letter-spacing="0.02em">ВЫРОКИНО</text>
+          <text x="340" y="278" fill="rgba(245,241,232,0.5)" font-family="JetBrains Mono, monospace" font-size="10">57.9142° N · 41.2876° E</text>
+          <text x="62" y="466" fill="rgba(245,241,232,0.5)" font-family="Oswald, sans-serif" font-size="13">КОСТРОМА →</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ФУТЕР ========= -->
+  <footer class="footer">
+    <div class="footer__logo">SUSANIN · BIKE · <span id="footerYear"></span></div>
+    <div class="footer__slogan">Всех находим. Иногда не сразу.</div>
+  </footer>
+
+  <!-- ========= МОДАЛКА ЗАПИСИ ========= -->
+  <div class="modal-overlay" id="bookingOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <button type="button" class="modal__close" id="bookingClose" aria-label="Закрыть">×</button>
+
+      <div id="bookingModalBody">
+        <h2 class="modal__title" id="bookingModalTitle">Записаться</h2>
+
+        <form class="booking__form" id="bookingForm" novalidate>
+          <!-- Тариф -->
+          <div class="form-group">
+            <div class="form-label">Тариф <span class="form-error-inline" id="err-tariff"></span></div>
+            <div class="tariff-pick" id="tariffPick">
+              <button type="button" class="tariff-btn" data-tariff="rental">
+                <div class="tariff-btn__name">Аренда + гид</div>
+                <div class="tariff-btn__sub">самый ходовой</div>
+              </button>
+              <button type="button" class="tariff-btn" data-tariff="tour1000">
+                <div class="tariff-btn__name">Мототур</div>
+                <div class="tariff-btn__sub">со своей техникой</div>
+              </button>
+              <button type="button" class="tariff-btn" data-tariff="date">
+                <div class="tariff-btn__name">Мотосвидание</div>
+                <div class="tariff-btn__sub">двое на двух колёсах</div>
+              </button>
+            </div>
+            <input type="hidden" id="fieldTariff" name="tariff" />
+          </div>
+
+          <!-- Дата / люди -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="fieldDate">Дата <span class="form-error-inline" id="err-date"></span></label>
+              <input type="date" id="fieldDate" name="date" class="form-input" />
+            </div>
+            <div class="form-group">
+              <div class="form-label">Человек</div>
+              <div class="people-picker">
+                <button type="button" id="peopleMinus" class="people-btn">−</button>
+                <div class="people-val" id="peopleVal">1</div>
+                <button type="button" id="peoplePlus" class="people-btn">+</button>
+              </div>
+              <input type="hidden" id="fieldPeople" name="people" value="1" />
+            </div>
+          </div>
+
+          <!-- Контакты -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="fieldName">Имя <span class="form-error-inline" id="err-name"></span></label>
+              <input type="text" id="fieldName" name="name" class="form-input" placeholder="Как к тебе обращаться" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fieldPhone">Телефон <span class="form-error-inline" id="err-phone"></span></label>
+              <input type="tel" id="fieldPhone" name="phone" class="form-input" placeholder="+7 ___ ___ __ __" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fieldEmail">Email (необязательно) <span class="form-error-inline" id="err-email"></span></label>
+            <input type="email" id="fieldEmail" name="email" class="form-input" placeholder="ты@где-то.рф" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fieldComment">Комментарий</label>
+            <textarea id="fieldComment" name="comment" class="form-input form-textarea" rows="3"
+              placeholder="Хочу с другом, он больше 120 кг. Можно ли нам тот, что покрепче?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--accent btn--submit" id="submitBtn">
+            Оставить заявку
+          </button>
+        </form>
+
+        <!-- Успех -->
+        <div class="booking__success" id="bookingSuccess" hidden>
+          <div class="booking__success-title">Готово</div>
+          <div class="booking__success-text">
+            Заявка оставлена. С вами свяжутся для подтверждения записи.
+          </div>
+          <button type="button" class="btn btn--outline" id="resetBtn">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
