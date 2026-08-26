@@ -183,7 +183,10 @@ const successBlock = document.getElementById('bookingSuccess');
 const submitBtn = document.getElementById('submitBtn');
 const SUBMIT_LABEL_DEFAULT = 'Оставить заявку';
 
-form.addEventListener('submit', async (e) => {
+// Числовой ID группы ВК (SUSANIN BIKE — vk.com/susanin_bike)
+const VK_GROUP_ID = '228039638';
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!validate()) return;
 
@@ -213,39 +216,11 @@ form.addEventListener('submit', async (e) => {
     'Комментарий: ' + (data.comment || '—'),
   ].join('\n');
 
-  submitBtn.textContent = 'Отправляю...';
-  submitBtn.disabled = true;
-
-  // ===== Отправка через Formspree =====
-  // ИНСТРУКЦИЯ: Зарегистрируйтесь на https://formspree.io/
-  // Создайте форму для martov1407@rambler.ru, получите endpoint вида:
-  // https://formspree.io/f/XXXXXXXX
-  // и замените строку ниже.
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
-
-  let sent = false;
-
-  if (!FORMSPREE_ENDPOINT.includes('REPLACE_ME')) {
-    try {
-      const resp = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ ...data, _subject: 'Новая заявка SUSANIN BIKE — ' + data.name }),
-      });
-      sent = resp.ok;
-    } catch (err) {
-      console.error('Formspree error:', err);
-    }
-  }
-
-  if (!sent) {
-    // Запасной вариант: mailto
-    const subject = encodeURIComponent('Новая заявка SUSANIN BIKE — ' + data.name);
-    const bodyEncoded = encodeURIComponent(body);
-    window.location.href = `mailto:martov1407@rambler.ru?subject=${subject}&body=${bodyEncoded}`;
-    // Подождём чуть-чуть и всё равно покажем "успех"
-    await new Promise(r => setTimeout(r, 600));
-  }
+  // ===== Отправка в сообщения группы ВКонтакте =====
+  // Открываем диалог с группой с уже готовым текстом заявки —
+  // пользователю остаётся нажать "Отправить" внутри ВК.
+  const vkUrl = `https://vk.me/write-${VK_GROUP_ID}?text=${encodeURIComponent(body)}`;
+  window.open(vkUrl, '_blank', 'noopener');
 
   // Показываем успех
   form.hidden = true;
