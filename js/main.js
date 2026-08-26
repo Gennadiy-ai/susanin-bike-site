@@ -5,12 +5,6 @@
 /* --- Футер: текущий год --- */
 document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-/* --- Минимальная дата в форме --- */
-const dateInput = document.getElementById('fieldDate');
-if (dateInput) {
-  dateInput.min = new Date().toISOString().split('T')[0];
-}
-
 /* =============================================
    Навигация
    ============================================= */
@@ -68,176 +62,15 @@ document.querySelectorAll('.faq__item').forEach(item => {
 });
 
 /* =============================================
-   Модалка записи
+   Записаться — сразу в сообщения группы ВКонтакте
    ============================================= */
-const bookingOverlay = document.getElementById('bookingOverlay');
-
-function openBookingModal() {
-  bookingOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  navMobileEl.classList.remove('open');
-}
-function closeBookingModal() {
-  bookingOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('[data-open-booking]').forEach(btn => {
-  btn.addEventListener('click', openBookingModal);
-});
-document.getElementById('bookingClose').addEventListener('click', closeBookingModal);
-bookingOverlay.addEventListener('click', e => {
-  if (e.target === bookingOverlay) closeBookingModal();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && bookingOverlay.classList.contains('open')) closeBookingModal();
-});
-
-/* =============================================
-   Форма бронирования
-   ============================================= */
-
-// --- Тариф ---
-let selectedTariff = '';
-document.querySelectorAll('.tariff-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tariff-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    selectedTariff = btn.dataset.tariff;
-    document.getElementById('fieldTariff').value = selectedTariff;
-    document.getElementById('err-tariff').textContent = '';
-  });
-});
-
-const TARIFF_NAMES = {
-  rental: 'Аренда + гид',
-  tour1000: 'Мототур',
-  date: 'Мотосвидание',
-};
-
-// --- Счётчик людей ---
-let people = 1;
-document.getElementById('peopleMinus').addEventListener('click', () => {
-  if (people > 1) { people--; updatePeople(); }
-});
-document.getElementById('peoplePlus').addEventListener('click', () => {
-  if (people < 20) { people++; updatePeople(); }
-});
-function updatePeople() {
-  document.getElementById('peopleVal').textContent = people;
-  document.getElementById('fieldPeople').value = people;
-}
-
-// --- Валидация ---
-function getVal(id) { return document.getElementById(id).value.trim(); }
-function setErr(id, msg) {
-  const el = document.getElementById('err-' + id);
-  if (el) el.textContent = msg ? '— ' + msg : '';
-}
-function clearInputErr(inputId) {
-  const input = document.getElementById(inputId);
-  if (input) input.classList.remove('error');
-}
-function markInputErr(inputId) {
-  const input = document.getElementById(inputId);
-  if (input) input.classList.add('error');
-}
-
-function validate() {
-  let ok = true;
-
-  // Тариф
-  if (!selectedTariff) {
-    setErr('tariff', 'Выбери тариф'); ok = false;
-  } else { setErr('tariff', ''); }
-
-  // Дата
-  if (!getVal('fieldDate')) {
-    setErr('date', 'Когда едем?'); markInputErr('fieldDate'); ok = false;
-  } else { setErr('date', ''); clearInputErr('fieldDate'); }
-
-  // Имя
-  const name = getVal('fieldName');
-  if (!name || name.length < 2) {
-    setErr('name', 'Как тебя зовут?'); markInputErr('fieldName'); ok = false;
-  } else { setErr('name', ''); clearInputErr('fieldName'); }
-
-  // Телефон
-  const phone = getVal('fieldPhone');
-  if (!/^[\+\d\s\-\(\)]{10,}$/.test(phone)) {
-    setErr('phone', '+7 или 8 — без фантазий'); markInputErr('fieldPhone'); ok = false;
-  } else { setErr('phone', ''); clearInputErr('fieldPhone'); }
-
-  // Email (необязательный)
-  const email = getVal('fieldEmail');
-  if (email && !/^\S+@\S+\.\S+$/.test(email)) {
-    setErr('email', 'Проверь email'); markInputErr('fieldEmail'); ok = false;
-  } else { setErr('email', ''); clearInputErr('fieldEmail'); }
-
-  return ok;
-}
-
-// --- Отправка ---
-const form = document.getElementById('bookingForm');
-const successBlock = document.getElementById('bookingSuccess');
-const submitBtn = document.getElementById('submitBtn');
-const SUBMIT_LABEL_DEFAULT = 'Оставить заявку';
-
 // Числовой ID группы ВК (SUSANIN BIKE — vk.com/susanin_bike)
 const VK_GROUP_ID = '228039638';
+const VK_WRITE_URL = `https://vk.com/write-${VK_GROUP_ID}`;
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (!validate()) return;
-
-  // Собираем данные
-  const data = {
-    tariff:  TARIFF_NAMES[selectedTariff] || selectedTariff,
-    date:    getVal('fieldDate'),
-    people:  people,
-    name:    getVal('fieldName'),
-    phone:   getVal('fieldPhone'),
-    email:   getVal('fieldEmail'),
-    comment: getVal('fieldComment'),
-  };
-
-  // Текст письма
-  const body = [
-    'Новая заявка SUSANIN BIKE',
-    '',
-    'Тариф: '   + data.tariff,
-    'Дата: '    + data.date,
-    'Человек: ' + data.people,
-    '',
-    'Имя: '    + data.name,
-    'Телефон: '+ data.phone,
-    'Email: '  + (data.email || '—'),
-    '',
-    'Комментарий: ' + (data.comment || '—'),
-  ].join('\n');
-
-  // ===== Отправка в сообщения группы ВКонтакте =====
-  // Открываем диалог с группой с уже готовым текстом заявки —
-  // пользователю остаётся нажать "Отправить" внутри ВК.
-  const vkUrl = `https://vk.me/write-${VK_GROUP_ID}?text=${encodeURIComponent(body)}`;
-  window.open(vkUrl, '_blank', 'noopener');
-
-  // Показываем успех
-  form.hidden = true;
-  successBlock.hidden = false;
-});
-
-// Закрытие модалки после успеха / сброс формы
-document.getElementById('resetBtn').addEventListener('click', () => {
-  closeBookingModal();
-  form.reset();
-  form.hidden = false;
-  successBlock.hidden = true;
-  submitBtn.textContent = SUBMIT_LABEL_DEFAULT;
-  submitBtn.disabled = false;
-  selectedTariff = '';
-  people = 1;
-  updatePeople();
-  document.querySelectorAll('.tariff-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('fieldTariff').value = '';
+document.querySelectorAll('[data-open-booking]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navMobileEl.classList.remove('open');
+    window.open(VK_WRITE_URL, '_blank', 'noopener');
+  });
 });
