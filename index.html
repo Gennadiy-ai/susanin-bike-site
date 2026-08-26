@@ -274,10 +274,6 @@
           <div class="map-block__val">Костромская обл., Сусанинский р-н,<br/>дер. Вырокино</div>
         </div>
         <div class="map-block__row">
-          <div class="map-block__label">Координаты</div>
-          <div class="map-block__val">57.9142° N · 41.2876° E</div>
-        </div>
-        <div class="map-block__row">
           <div class="map-block__label">Телефон</div>
           <div class="map-block__val"><a href="tel:+79536505663">+7 953 650 56 63 (Михаил)</a></div>
         </div>
@@ -295,7 +291,7 @@
         </div>
         <div class="map-block__row">
           <div class="map-block__label">Как доехать</div>
-          <div class="map-block__val">Кострома → Сусанино (85 км) → Вырокино</div>
+          <div class="map-block__val">Кострома → Сусанино → Вырокино</div>
         </div>
       </div>
       <div class="map-block__svg">
@@ -319,14 +315,18 @@
           <path d="M 0 320 Q 180 280 300 340 T 600 310" fill="none" stroke="rgba(100,140,180,0.4)" stroke-width="3"/>
           <!-- Дорога -->
           <path d="M 50 450 Q 200 400 320 260 T 550 120" fill="none" stroke="#ff5a1f" stroke-width="2" stroke-dasharray="6 4"/>
-          <!-- Пульсирующий маркер -->
+          <!-- Кострома (старт) -->
+          <circle cx="50" cy="450" r="5" fill="#ff5a1f"/>
+          <text x="62" y="466" fill="rgba(245,241,232,0.5)" font-family="Oswald, sans-serif" font-size="13">КОСТРОМА</text>
+          <!-- Сусанино (промежуточная точка) -->
+          <circle cx="193" cy="378" r="5" fill="#ff5a1f"/>
+          <text x="205" y="376" fill="rgba(245,241,232,0.5)" font-family="Oswald, sans-serif" font-size="13">СУСАНИНО</text>
+          <!-- Пульсирующий маркер: Вырокино (цель) -->
           <circle cx="320" cy="260" r="40" fill="rgba(255,90,31,0.12)">
             <animate attributeName="r" values="40;55;40" dur="2.2s" repeatCount="indefinite"/>
           </circle>
           <circle cx="320" cy="260" r="8" fill="#ff5a1f"/>
           <text x="340" y="258" fill="#f5f1e8" font-family="Oswald, sans-serif" font-size="18" letter-spacing="0.02em">ВЫРОКИНО</text>
-          <text x="340" y="278" fill="rgba(245,241,232,0.5)" font-family="JetBrains Mono, monospace" font-size="10">57.9142° N · 41.2876° E</text>
-          <text x="62" y="466" fill="rgba(245,241,232,0.5)" font-family="Oswald, sans-serif" font-size="13">КОСТРОМА →</text>
         </svg>
       </div>
     </div>
