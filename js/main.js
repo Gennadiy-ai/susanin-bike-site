@@ -71,6 +71,20 @@ const VK_WRITE_URL = `https://vk.com/write-${VK_GROUP_ID}`;
 document.querySelectorAll('[data-open-booking]').forEach(btn => {
   btn.addEventListener('click', () => {
     navMobileEl.classList.remove('open');
+    reachGoal('vk_write_click');
     window.open(VK_WRITE_URL, '_blank', 'noopener');
   });
+});
+
+/* =============================================
+   Яндекс.Метрика — цели на клики по ссылкам ВК
+   ============================================= */
+function reachGoal(goal) {
+  if (typeof ym === 'function') {
+    ym(111996324, 'reachGoal', goal);
+  }
+}
+
+document.querySelectorAll('[data-vk-goal]').forEach(el => {
+  el.addEventListener('click', () => reachGoal(el.dataset.vkGoal));
 });
