@@ -81,7 +81,7 @@ document.querySelectorAll('[data-open-booking]').forEach(btn => {
    ============================================= */
 function reachGoal(goal) {
   if (typeof ym === 'function') {
-    ym(111996324, 'reachGoal', goal);
+    ym(111997361, 'reachGoal', goal);
   }
 }
 
